@@ -1,0 +1,2 @@
+# GJAlertController
+在程序中使用UIAlertController而不用关心低版本兼容的问题
