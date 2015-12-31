@@ -1,0 +1,14 @@
+PODS:
+  - GJAlertController (0.0.1)
+
+DEPENDENCIES:
+  - GJAlertController (from `../GJAlertController`)
+
+EXTERNAL SOURCES:
+  GJAlertController:
+    :path: "../GJAlertController"
+
+SPEC CHECKSUMS:
+  GJAlertController: 5efef5e9b58883e47fc4e7b8ef10ce8ac025031a
+
+COCOAPODS: 0.39.0
