@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"hello gj");
 }
 
 - (IBAction)showAlert:(UIButton *)sender {
