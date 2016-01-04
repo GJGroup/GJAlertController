@@ -1,2 +1,3 @@
 # GJAlertController
-在程序中使用UIAlertController而不用关心低版本兼容的问题, 具体见GJAlertController中的README.md
+
+UIAlertController是一个在iOS8才被加入的类，在低于iOS8版本的设备上无法使用，此库可让使用者在程序中使用UIAlertController而不用关心低版本兼容的问题。也就是说，放心的使用UIAlertController吧!
