@@ -19,6 +19,16 @@ typedef NS_ENUM(NSInteger, GJAlertControllerStyle) {
 + (instancetype)alertControllerWithTitle:(NSString *)title message:(NSString *)message preferredStyle:(GJAlertControllerStyle)preferredStyle;
 
 - (void)addAction:(GJAlertAction *)action;
+@property (nonatomic, readonly) NSArray<GJAlertAction *> *actions;
+
+/**
+ *  该属性是iOS9针对UIAlertControllerStyleAlert添加的，并不能用UIAlertView实现该属性的功能，
+    这里仅仅是提供方法调用使得不发生crash，这里改属性并没有意义
+ */
+@property (nonatomic, strong) GJAlertAction *preferredAction;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *message;
+@property (nonatomic, readonly) GJAlertControllerStyle preferredStyle;
 
 - (void)gj_showInView:(UIView *)aView;
 

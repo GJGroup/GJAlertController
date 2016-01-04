@@ -45,6 +45,21 @@ static GJAlertController *defaultController;
     return defaultController;
 }
 
+- (instancetype)init {
+    NSAssert(NO, @"GJAlertController:please ues + (instancetype)alertControllerWithTitle: message: preferredStyle:  to create instance");
+    return nil;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    NSAssert(NO, @"GJAlertController:please ues + (instancetype)alertControllerWithTitle: message: preferredStyle:  to create instance");
+    return nil;
+}
+
+- (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil {
+    NSAssert(NO, @"GJAlertController:please ues + (instancetype)alertControllerWithTitle: message: preferredStyle:  to create instance");
+    return nil;
+}
+
 
 - (void)addAction:(GJAlertAction *)action
 {
@@ -67,6 +82,59 @@ static GJAlertController *defaultController;
     }
 }
 
+#pragma mark - propterty methods
+- (NSArray<GJAlertAction *> *)actions {
+    return defaultController->_alertActionArr;
+}
+
+- (void)setPreferredAction:(GJAlertAction *)preferredAction {
+    //UIAlertView并不能实现这个属性的功能，什么都不做
+}
+
+- (GJAlertAction *)preferredAction {
+    //UIAlertView并不能实现这个属性的功能，返回空
+    return nil;
+}
+
+- (void)setTitle:(NSString *)title {
+    if (GJAlertControllerStyleAlert == defaultController->_style) {
+        defaultController->_gjAlertView.title = title;
+    } else if (GJAlertControllerStyleActionSheet == defaultController->_style) {
+        defaultController->_gjActionSheet.title = title;
+    }
+}
+
+- (NSString *)title {
+    if (GJAlertControllerStyleAlert == defaultController->_style) {
+        return defaultController->_gjAlertView.title;
+    } else if (GJAlertControllerStyleActionSheet == defaultController->_style) {
+        return defaultController->_gjActionSheet.title;
+    } else return nil;
+}
+
+- (void)setMessage:(NSString *)message {
+    if (GJAlertControllerStyleAlert == defaultController->_style) {
+        defaultController->_gjAlertView.message = message;
+    } else if (GJAlertControllerStyleActionSheet == defaultController->_style) {
+        //actionSheet没有message属性
+    }
+}
+
+- (NSString *)message {
+    if (GJAlertControllerStyleAlert == defaultController->_style) {
+        return defaultController->_gjAlertView.message;
+    } else if (GJAlertControllerStyleActionSheet == defaultController->_style) {
+        //actionSheet没有message属性
+        return nil;
+    } else return nil;
+}
+
+- (GJAlertControllerStyle)preferredStyle {
+    return defaultController->_style;
+}
+
+
+#pragma mark - alert view delegate methods
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     GJAlertAction *tempAlertAction = (defaultController->_alertActionArr)[buttonIndex];
     GJAlertBlock tempBlock = tempAlertAction.handler;
@@ -75,6 +143,7 @@ static GJAlertController *defaultController;
     }
 }
 
+#pragma mark - actionSheet delegate methods
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     GJAlertAction *tempAlertAction = (defaultController->_alertActionArr)[buttonIndex];
     GJAlertBlock tempBlock = tempAlertAction.handler;
