@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '92B19A840F39077DC2EFE3D6'
+               BlueprintIdentifier = '4C631905BA41910D370213EC'
                BlueprintName = 'GJAlertController'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libGJAlertController.a'>

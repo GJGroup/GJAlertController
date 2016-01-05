@@ -26,10 +26,19 @@ typedef NS_ENUM(NSInteger, GJAlertControllerStyle) {
     这里仅仅是提供方法调用使得不发生crash，这里改属性并没有意义
  */
 @property (nonatomic, strong) GJAlertAction *preferredAction;
+
+- (void)addTextFieldWithConfigurationHandler:(void (^)(UITextField *textField))configurationHandler;
+@property (nonatomic, readonly) NSArray<UITextField *> *textFields;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *message;
 @property (nonatomic, readonly) GJAlertControllerStyle preferredStyle;
 
 - (void)gj_showInView:(UIView *)aView;
+
+
+
+- (void)testShow;
+
+- (void)testShowActonSheet;
 
 @end

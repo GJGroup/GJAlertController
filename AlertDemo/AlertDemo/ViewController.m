@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 
+#import "GJAlertController.h"
+#import "GJAlertAction.h"
+
 @interface ViewController ()
 
 @end
@@ -16,36 +19,50 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"hello gj");
 }
 
 - (IBAction)showAlert:(UIButton *)sender {
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"testTitle" message:@"testMessage" preferredStyle:UIAlertControllerStyleAlert];
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    GJAlertController *alertVC = [GJAlertController alertControllerWithTitle:@"testTitle" message:@"testMessage" preferredStyle:GJAlertControllerStyleAlert];
+    [alertVC addAction:[GJAlertAction actionWithTitle:@"ok" style:GJAlertActionStyleDefault handler:^(GJAlertAction * _Nonnull action) {
+        NSLog(@"%@", action.title);
+        
+        for (UITextField *tempTextField in alertVC.textFields) {
+            NSLog(@"---------------:%@", tempTextField.placeholder);
+        }
+        
+    }]];
+    
+    [alertVC addAction:[GJAlertAction actionWithTitle:@"cancel" style:GJAlertActionStyleDefault handler:^(GJAlertAction * _Nonnull action) {
         NSLog(@"%@", action.title);
     }]];
     
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"%@", action.title);
-    }]];
-    [self presentViewController:alertVC animated:YES completion:nil];
+    [alertVC addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"haha";
+    }];
+    
+    [alertVC addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"huhu";
+    }];
+    
+    [alertVC testShow];
 }
 
 - (IBAction)showActionSheet:(UIButton *)sender {
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"testTitle" message:@"testMessage" preferredStyle:UIAlertControllerStyleActionSheet];
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    GJAlertController *alertVC = [GJAlertController alertControllerWithTitle:@"testTitle" message:@"testMessage" preferredStyle:GJAlertControllerStyleActionSheet];
+    [alertVC addAction:[GJAlertAction actionWithTitle:@"ok" style:GJAlertActionStyleDefault handler:^(GJAlertAction * _Nonnull action) {
         NSLog(@"%@", action.title);
     }]];
+    [alertVC testShowActonSheet];
     
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"%@", action.title);
-    }]];
+//    [alertVC addAction:[UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        NSLog(@"%@", action.title);
+//    }]];
+//    
+//    [alertVC addAction:[UIAlertAction actionWithTitle:@"test" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        NSLog(@"%@", action.title);
+//    }]];
     
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"test" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"%@", action.title);
-    }]];
-    
-    [self presentViewController:alertVC animated:YES completion:nil];
+//    [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 @end
