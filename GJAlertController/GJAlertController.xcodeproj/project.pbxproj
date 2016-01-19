@@ -256,6 +256,7 @@
 				53F5950A1C3522130021D09D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

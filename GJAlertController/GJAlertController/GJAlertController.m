@@ -95,7 +95,6 @@ static GJAlertController *defaultController;
         //textField只对alert做处理，不对actionSheet做处理
         return;
     }
-    
     if (UIAlertViewStyleLoginAndPasswordInput == defaultController->_gjAlertView.alertViewStyle) {
         //由于UIAlertView的API的限制，最多只能有两个TextField，已经有两个了，不做处理，直接返回
         return;

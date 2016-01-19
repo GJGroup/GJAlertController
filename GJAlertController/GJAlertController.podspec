@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "GJAlertController"
-  s.version      = "0.0.1"
+  s.version      = "1.0.0"
   s.summary      = "可以任意在代码中使用UIAlertController，而不用担心低版本兼容的问题"
 
   
