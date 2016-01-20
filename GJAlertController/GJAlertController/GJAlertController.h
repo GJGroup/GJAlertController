@@ -36,7 +36,9 @@ typedef NS_ENUM(NSInteger, GJAlertControllerStyle) {
 - (void)gj_showInView:(UIView *)aView;
 
 
-
+/**
+ *  如果没有iOS7的设备可以用来测试GJAlertController库的功能的话，可以直接调用GJAlertController等相关类来测试，用法和系统的UIAlertController一样，但由于GJAlertController内部是用UIAlertView和UIActionSheet来实现的，所以并不能调用[self presentViewController:alert animated:YES completion:nil];来显示，要调用下面的两个测试显示的方法，testShow用于显示Alert，testShowActionSheet用于显示actionsheet
+ */
 - (void)testShow;
 
 - (void)testShowActonSheet;

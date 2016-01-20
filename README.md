@@ -6,7 +6,15 @@ UIAlertController是一个在iOS8才被加入的类，在低于iOS8版本的设�
 
 当app运行的iOS版本中没有UIAlertController的时候，GJAlertController这个类库会自动用UIAlertView、UIActionSheet去帮你实现你想要的功能。
 
-用法：就是直接用UIAlertController，不用考虑版本兼容的问题。
+###使用：
+#####1.直接把GJAlertController文件夹下的GJAlertAction.h/.m、GJAlertController.h/.m、UIViewController+Alert.h/.m文件放入工程中即可，无需引入其他库。
+
+#####2.Podfile文件中添加：pod 'GJAlertController'
+#####然后重新update
+
+
+
+###用法：就是直接用UIAlertController，不用考虑版本兼容的问题。
 
 
 ```C
@@ -33,5 +41,24 @@ UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"title
 ```
 如果要使用actionSheet把创建时候的type改成UIAlertControllerStyleActionSheet。
 
-如果想测试GJAlertController的作用，又没有iOS7的设备的话，可以直接使用GJAlertController、GJAlertAction及其相关的枚举值，用法就是把上面用法中的UI前缀换成GJ就可以了。
+如果想测试GJAlertController的作用，又没有iOS7的设备的话，可以直接使用GJAlertController、GJAlertAction及其相关的枚举值，用法就是把上面用法中的UI前缀换成GJ就可以了，但是显示的时候不能调用
+
+
+```C
+[self presentViewController:alert animated:YES completion:nil];
+```
+
+如果要显示Alert调用：
+
+```C
+[alert testShow];
+```
+
+如果要显示ActionSheet调用：
+
+
+```C
+[actionSheet testShowActionSheet];
+```
+
 
