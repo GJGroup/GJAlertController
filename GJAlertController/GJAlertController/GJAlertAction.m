@@ -69,6 +69,12 @@ __attribute__((constructor)) static void GJAlertActionPatchEntry(void) {
                     objc_registerClassPair(class);
                     *alertAction = class;
                 }
+            } else {
+                Class class = objc_allocateClassPair([NSObject class], "GJAlertAction", 0);
+                if (class) {
+                    objc_registerClassPair(class);
+                    *alertAction = class;
+                }
             }
         }
     });
