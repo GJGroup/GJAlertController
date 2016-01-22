@@ -1,5 +1,5 @@
 # GJAlertController
-
+##简介
 UIAlertController是一个在iOS8才被加入的类，在低于iOS8版本的设备上无法使用，此库可让使用者在低版本中也可以使用UIAlertController。
 
 也就是说，你在开发的时候尽管使用UIAlertController，就当它是iOS很早版本就有的类，不必去在代码中判断如果iOS版本小于8，而去用AlertView或者ActionSheet。
@@ -7,10 +7,11 @@ UIAlertController是一个在iOS8才被加入的类，在低于iOS8版本的设�
 当app运行的iOS版本中没有UIAlertController的时候，GJAlertController这个类库会自动用UIAlertView、UIActionSheet去帮你实现你想要的功能。
 
 ###使用：
-#####1.直接把GJAlertController文件夹下的GJAlertAction.h/.m、GJAlertController.h/.m、UIViewController+Alert.h/.m文件放入工程中即可，无需引入其他库。
-
-#####2.Podfile文件中添加：pod 'GJAlertController'
-#####然后重新update
+__第一种 拷贝导入__
+__1.直接把GJAlertController文件夹下的GJAlertAction.h/.m、GJAlertController.h/.m、UIViewController+Alert.h/.m文件放入工程中即可，无需引入其他库。__
+__第二种 使用cocoapods管理__
+__2.使用cocoapods  Podfile文件中添加：pod 'GJAlertController'__
+__然后重新update__
 
 
 
