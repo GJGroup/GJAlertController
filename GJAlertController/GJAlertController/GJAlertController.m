@@ -273,13 +273,7 @@ __attribute__((constructor)) static void GJAlertControllerPatchEntry(void) {
                     objc_registerClassPair(class);
                     *alertController = class;
                 }
-            } else {
-                Class class = objc_allocateClassPair([NSObject class], "GJAlertController", 0);
-                if (class) {
-                    objc_registerClassPair(class);
-                    *alertController = class;
-                }
-            }
+            } 
         }
     });
 }

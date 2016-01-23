@@ -44,7 +44,7 @@ __attribute__((constructor)) static void GJAlertActionPatchEntry(void) {
             }
             
             Class *alertAction = NULL;
-            
+
 #if TARGET_CPU_ARM
             __asm("movw %0, :lower16:(_OBJC_CLASS_UIAlertAction-(LPC0+4))\n"
                   "movt %0, :upper16:(_OBJC_CLASS_UIAlertAction-(LPC0+4))\n"
@@ -65,12 +65,6 @@ __attribute__((constructor)) static void GJAlertActionPatchEntry(void) {
             
             if (alertAction && !*alertAction) {
                 Class class = objc_allocateClassPair([GJAlertAction class], "UIAlertAction", 0);
-                if (class) {
-                    objc_registerClassPair(class);
-                    *alertAction = class;
-                }
-            } else {
-                Class class = objc_allocateClassPair([NSObject class], "GJAlertAction", 0);
                 if (class) {
                     objc_registerClassPair(class);
                     *alertAction = class;
