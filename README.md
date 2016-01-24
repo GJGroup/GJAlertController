@@ -8,10 +8,16 @@ UIAlertController是一个在iOS8才被加入的类，在低于iOS8版本的设�
 
 ###使用：
 __第一种 拷贝导入__
-__1.直接把GJAlertController文件夹下的GJAlertAction.h/.m、GJAlertController.h/.m、UIViewController+Alert.h/.m文件放入工程中即可，无需引入其他库。__
+
+__1.直接把GJAlertController文件夹下的GJAlertAction.h/.m、GJAlertController.h/.m、UIViewController+Alert.h/.m文件拷贝到工程中即可。__
+
 __第二种 使用cocoapods管理__
-__2.使用cocoapods  Podfile文件中添加：pod 'GJAlertController'__
-__然后重新update__
+
+__使用cocoapods__
+
+__在Podfile文件中添加：pod 'GJAlertController。__
+
+__然后重新update。__
 
 
 
