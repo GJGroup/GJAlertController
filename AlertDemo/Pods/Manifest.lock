@@ -1,5 +1,5 @@
 PODS:
-  - GJAlertController (0.0.1)
+  - GJAlertController (1.0.0)
 
 DEPENDENCIES:
   - GJAlertController (from `../GJAlertController`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: "../GJAlertController"
 
 SPEC CHECKSUMS:
-  GJAlertController: 5efef5e9b58883e47fc4e7b8ef10ce8ac025031a
+  GJAlertController: 71a7f2072451bc37b780d78379c9ee4b6f357dd2
 
 COCOAPODS: 0.39.0

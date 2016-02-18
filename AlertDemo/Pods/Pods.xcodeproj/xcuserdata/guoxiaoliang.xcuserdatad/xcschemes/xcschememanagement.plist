@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>GJAlertController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-AlertDemo.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>50B239488B55FDBC24DDF6C23445BF2E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FDE5C88DBE59553884764C83EA2EC2A5</key>
+		<key>3A3DA003F4C503ABF603E243EA9E735E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
