@@ -19,6 +19,7 @@
 }
 
 - (IBAction)showAlert:(UIButton *)sender {
+    NSLog(@"hello world");
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"title" message:@"message" preferredStyle:UIAlertControllerStyleAlert];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"%@", action.title);
