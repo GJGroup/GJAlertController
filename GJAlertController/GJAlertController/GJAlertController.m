@@ -54,6 +54,13 @@ static GJAlertController *defaultController;
         [defaultController->_gjActionSheet addButtonWithTitle:action.title];
     }
     [defaultController->_alertActionArr addObject:action];
+    //根据样式(cancel,destructive)将对应的cancelButtonIndex,destructiveButtonIndex指向当前button的index(取消必须在最后一个添加才能正确显示)
+    if (action.style == UIAlertActionStyleCancel) {
+        defaultController->_gjActionSheet.cancelButtonIndex = _gjActionSheet.numberOfButtons - 1;
+    }
+    if (action.style == UIAlertActionStyleDestructive) {
+        defaultController->_gjActionSheet.destructiveButtonIndex = _gjActionSheet.numberOfButtons - 1;
+    }
 }
 
 - (void)gj_showInView:(UIView *)aView
@@ -62,7 +69,9 @@ static GJAlertController *defaultController;
         [defaultController->_gjAlertView show];
     } else if (GJAlertControllerStyleActionSheet == defaultController->_style) {
         if (aView) {
-            [defaultController->_gjActionSheet showInView:aView];
+            //防止iOS7系统下,如果不是控件触发的ActionSheet(直接present)导致的崩溃错误(http://blog.csdn.net/quanqinyang/article/details/17025225),或者tabbar的原因导致的最后一个按钮失效(http://stackoverflow.com/questions/4447563/last-button-of-actionsheet-does-not-get-clicked)
+            [defaultController->_gjActionSheet showInView:[UIApplication sharedApplication].keyWindow];
+            //[defaultController->_gjActionSheet showInView:aView];
         }
     }
 }
